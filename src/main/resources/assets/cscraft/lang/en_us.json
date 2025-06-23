@@ -1,3 +1,5 @@
 {
-  "item.cscraft.copper_wire" : "Copper Wire"
+  "item.cscraft.copper_wire" : "Copper Wire",
+  "item.cscraft.empty_cable" : "Empty Cable",
+  "item.cscraft.silicon_wafer" : "Silicon Wafer"
 }
