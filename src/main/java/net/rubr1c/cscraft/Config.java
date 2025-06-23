@@ -1,4 +1,4 @@
-package net.rubr1c.neotest;
+package net.rubr1c.cscraft;
 
 import java.util.List;
 
