@@ -4,6 +4,7 @@
   "item.cscraft.silicon_wafer" : "Silicon Wafer",
   "item.cscraft.contact_pins" : "Contact Pins",
   "item.cscraft.small_pcb" : "Small PCB",
+  "item.cscraft.solder_dust" : "Solder Dust",
 
 
   "block.cscraft.solder_ore": "Solder Ore",

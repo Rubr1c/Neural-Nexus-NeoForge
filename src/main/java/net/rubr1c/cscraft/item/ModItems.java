@@ -1,15 +1,12 @@
 package net.rubr1c.cscraft.item;
 
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rubr1c.cscraft.CSCraft;
 import net.rubr1c.cscraft.item.custom.GlowingItem;
-import org.checkerframework.checker.units.qual.A;
 
-import java.util.ArrayList;
 import java.util.function.Supplier;
 
 import static net.rubr1c.cscraft.item.ModCreativeModeTabs.CSCRAFT_TAB_ITEMS;
@@ -17,23 +14,26 @@ import static net.rubr1c.cscraft.item.ModCreativeModeTabs.CSCRAFT_TAB_ITEMS;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CSCraft.MODID);
 
-    public static final DeferredItem<Item> EMPTY_CABLE = createItem("empty_cable",
+    public static final DeferredItem<Item> EMPTY_CABLE = registerItem("empty_cable",
             () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> COPPER_WIRE = createItem("copper_wire",
+    public static final DeferredItem<Item> COPPER_WIRE = registerItem("copper_wire",
             () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> SILICON_WAFER = createItem("silicon_wafer",
+    public static final DeferredItem<Item> SILICON_WAFER = registerItem("silicon_wafer",
             () -> new GlowingItem(new Item.Properties()));
 
-    public static final DeferredItem<Item> CONTACT_PINS = createItem("contact_pins",
+    public static final DeferredItem<Item> CONTACT_PINS = registerItem("contact_pins",
             () -> new Item(new Item.Properties()));
 
-    public static final DeferredItem<Item> SMALL_PCB = createItem("small_pcb",
+    public static final DeferredItem<Item> SMALL_PCB = registerItem("small_pcb",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> SOLDER_DUST = registerItem("solder_dust",
             () -> new Item(new Item.Properties()));
 
 
-    public static DeferredItem<Item> createItem(String name, Supplier<Item> item) {
+    public static DeferredItem<Item> registerItem(String name, Supplier<Item> item) {
         DeferredItem<Item> deferred = ITEMS.register(name, item);
         CSCRAFT_TAB_ITEMS.add(deferred::get);
         return deferred;
