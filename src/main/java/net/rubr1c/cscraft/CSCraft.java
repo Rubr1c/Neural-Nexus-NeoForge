@@ -2,6 +2,7 @@ package net.rubr1c.cscraft;
 
 import net.minecraft.world.item.CreativeModeTabs;
 import net.rubr1c.cscraft.block.ModBlocks;
+import net.rubr1c.cscraft.item.ModCreativeModeTabs;
 import net.rubr1c.cscraft.item.ModItems;
 import org.slf4j.Logger;
 
@@ -37,8 +38,10 @@ public class CSCraft {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
-        ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
+
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

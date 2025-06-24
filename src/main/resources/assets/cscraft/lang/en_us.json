@@ -6,5 +6,6 @@
   "item.cscraft.small_pcb" : "Small PCB",
 
 
-  "block.cscraft.solder_ore": "Solder Ore"
+  "block.cscraft.solder_ore": "Solder Ore",
+  "creativetab.cscraft.main": "CS Craft"
 }
