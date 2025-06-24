@@ -1,5 +1,10 @@
 {
   "item.cscraft.copper_wire" : "Copper Wire",
   "item.cscraft.empty_cable" : "Empty Cable",
-  "item.cscraft.silicon_wafer" : "Silicon Wafer"
+  "item.cscraft.silicon_wafer" : "Silicon Wafer",
+  "item.cscraft.contact_pins" : "Contact Pins",
+  "item.cscraft.small_pcb" : "Small PCB",
+
+
+  "block.cscraft.solder_ore": "Solder Ore"
 }

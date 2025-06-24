@@ -19,6 +19,13 @@ public class ModItems {
     public static final DeferredItem<Item> SILICON_WAFER = ITEMS.register("silicon_wafer",
             () -> new GlowingItem(new Item.Properties()));
 
+    public static final DeferredItem<Item> CONTACT_PINS = ITEMS.register("contact_pins",
+            () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> SMALL_PCB = ITEMS.register("small_pcb",
+            () -> new Item(new Item.Properties()));
+
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
