@@ -1,6 +1,5 @@
 package net.rubr1c.cscraft;
 
-import net.minecraft.world.item.CreativeModeTabs;
 import net.rubr1c.cscraft.block.ModBlocks;
 import net.rubr1c.cscraft.item.ModCreativeModeTabs;
 import net.rubr1c.cscraft.item.ModItems;
