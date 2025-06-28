@@ -15,15 +15,15 @@ import java.util.function.Supplier;
 
 
 public class ModCreativeModeTabs {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB =
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CSCraft.MODID);
 
     public static final List<Supplier<? extends ItemLike>> CSCRAFT_TAB_ITEMS = new ArrayList<>();
 
-    public static final Supplier<CreativeModeTab> CSCRAFT_TAB = CREATIVE_MODE_TAB.register("cscraft_tab",
+    public static final Supplier<CreativeModeTab> CSCRAFT_TAB = CREATIVE_MODE_TABS.register("cs_main",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.SMALL_PCB.get()))
-                    .title(Component.translatable("creativetab.cscraft.main"))
+                    .title(Component.translatable("creativetab.cscraft.cs_main"))
                     .displayItems((params, output) -> {
                         for (Supplier<? extends ItemLike> sup : CSCRAFT_TAB_ITEMS) {
                             output.accept(sup.get());
@@ -34,7 +34,7 @@ public class ModCreativeModeTabs {
 
 
     public static void register(IEventBus eventBus) {
-        CREATIVE_MODE_TAB.register(eventBus);
+        CREATIVE_MODE_TABS.register(eventBus);
     }
 
 }

@@ -1,0 +1,10 @@
+{
+  "block.cscraft.solder_ore": "Solder Ore",
+  "creativetab.cscraft.cs_main": "Cs Main",
+  "item.cscraft.contact_pins": "Contact Pins",
+  "item.cscraft.copper_wire": "Copper Wire",
+  "item.cscraft.empty_cable": "Empty Cable",
+  "item.cscraft.silicon_wafer": "Silicon Wafer",
+  "item.cscraft.small_pcb": "Small Pcb",
+  "item.cscraft.solder_dust": "Solder Dust"
+}
