@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "neuralnexus:block/solder_ore"
+    }
+  }
+}

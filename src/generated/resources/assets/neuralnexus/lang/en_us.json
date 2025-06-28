@@ -1,0 +1,10 @@
+{
+  "block.neuralnexus.solder_ore": "Solder Ore",
+  "creativetab.neuralnexus.neural_nexus": "Neural Nexus",
+  "item.neuralnexus.contact_pins": "Contact Pins",
+  "item.neuralnexus.copper_wire": "Copper Wire",
+  "item.neuralnexus.empty_cable": "Empty Cable",
+  "item.neuralnexus.silicon_wafer": "Silicon Wafer",
+  "item.neuralnexus.small_pcb": "Small Pcb",
+  "item.neuralnexus.solder_dust": "Solder Dust"
+}
