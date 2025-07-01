@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rubr1c.neuralnexus.NeuralNexus;
 import net.rubr1c.neuralnexus.item.custom.GlowingItem;
+import net.rubr1c.neuralnexus.sound.ModSounds;
 
 import java.util.function.Supplier;
 
@@ -31,6 +32,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> SOLDER_DUST = registerItem("solder_dust",
             () -> new Item(new Item.Properties()));
+
+    public static final DeferredItem<Item> MCSM_THEME_MUSIC_DISC = registerItem("mcsm_theme_music_disc",
+            () -> new Item(new Item.Properties().jukeboxPlayable(ModSounds.MCSM_THEME_KEY).stacksTo(1)));
 
 
     public static DeferredItem<Item> registerItem(String name, Supplier<Item> item) {

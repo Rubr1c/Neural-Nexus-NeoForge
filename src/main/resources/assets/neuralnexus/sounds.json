@@ -1,0 +1,10 @@
+{
+  "mcsm_theme": {
+    "sounds": [
+      {
+        "name": "neuralnexus:mcsm_theme",
+        "stream": true
+      }
+    ]
+  }
+}

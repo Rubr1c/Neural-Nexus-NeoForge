@@ -3,6 +3,7 @@ package net.rubr1c.neuralnexus;
 import net.rubr1c.neuralnexus.block.ModBlocks;
 import net.rubr1c.neuralnexus.item.ModCreativeModeTabs;
 import net.rubr1c.neuralnexus.item.ModItems;
+import net.rubr1c.neuralnexus.sound.ModSounds;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -40,7 +41,7 @@ public class NeuralNexus {
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
-
+        ModSounds.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

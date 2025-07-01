@@ -19,5 +19,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.SILICON_WAFER.get());
         basicItem(ModItems.SMALL_PCB.get());
         basicItem(ModItems.SOLDER_DUST.get());
+        basicItem(ModItems.MCSM_THEME_MUSIC_DISC.get());
     }
 }
