@@ -6,6 +6,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rubr1c.neuralnexus.NeuralNexus;
 import net.rubr1c.neuralnexus.item.custom.GlowingItem;
+import net.rubr1c.neuralnexus.item.custom.LearnerModelItem;
 import net.rubr1c.neuralnexus.sound.ModSounds;
 
 import java.util.function.Supplier;
@@ -36,10 +37,12 @@ public class ModItems {
     public static final DeferredItem<Item> MCSM_THEME_MUSIC_DISC = registerItem("mcsm_theme_music_disc",
             () -> new Item(new Item.Properties().jukeboxPlayable(ModSounds.MCSM_THEME_KEY).stacksTo(1)));
 
+    public static final DeferredItem<Item> LEARNER_MODEL = registerItem("learner_model",
+            LearnerModelItem::new);
 
     public static DeferredItem<Item> registerItem(String name, Supplier<Item> item) {
         DeferredItem<Item> deferred = ITEMS.register(name, item);
-        CSCRAFT_TAB_ITEMS.add(deferred::get);
+        CSCRAFT_TAB_ITEMS.add(deferred);
         return deferred;
     }
 

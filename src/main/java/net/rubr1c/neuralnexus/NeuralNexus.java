@@ -1,6 +1,7 @@
 package net.rubr1c.neuralnexus;
 
 import net.rubr1c.neuralnexus.block.ModBlocks;
+import net.rubr1c.neuralnexus.component.ModDataComponents;
 import net.rubr1c.neuralnexus.item.ModCreativeModeTabs;
 import net.rubr1c.neuralnexus.item.ModItems;
 import net.rubr1c.neuralnexus.sound.ModSounds;
@@ -42,6 +43,7 @@ public class NeuralNexus {
         ModItems.register(modEventBus);
         ModCreativeModeTabs.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModDataComponents.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
