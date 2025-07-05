@@ -1,12 +1,7 @@
 package net.rubr1c.neuralnexus.item.custom;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
-import io.netty.buffer.ByteBuf;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -15,17 +10,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.rubr1c.neuralnexus.codec.LearnerModelData;
 import net.rubr1c.neuralnexus.component.ModDataComponents;
 
 import java.util.List;
 
 public class LearnerModelItem extends Item {
-
-
-    private static final IntegerProperty ACCURACY =
-            IntegerProperty.create("accuracy", 0, 100);
 
 
     public LearnerModelItem() {
@@ -42,6 +31,7 @@ public class LearnerModelItem extends Item {
         ItemStack newStack = stack.copy();
         newStack.set(ModDataComponents.LIVING_ENTITY,
                 ResourceLocation.parse(id.toString()));
+        newStack.set(ModDataComponents.PERCENT, 0);
         player.setItemInHand(usedHand, newStack);
 
         return InteractionResult.SUCCESS;
@@ -54,8 +44,10 @@ public class LearnerModelItem extends Item {
                                 TooltipFlag tooltipFlag) {
 
         var entity = stack.get(ModDataComponents.LIVING_ENTITY);
+        var accuracy = stack.get(ModDataComponents.PERCENT);
         if (entity != null) {
             tooltipComponents.add(Component.literal("Type: " + entity.getPath()));
+            tooltipComponents.add(Component.literal("Accuracy: " + accuracy));
         }
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);

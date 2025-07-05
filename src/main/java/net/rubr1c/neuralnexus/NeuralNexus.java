@@ -1,9 +1,12 @@
 package net.rubr1c.neuralnexus;
 
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.rubr1c.neuralnexus.block.ModBlocks;
 import net.rubr1c.neuralnexus.component.ModDataComponents;
 import net.rubr1c.neuralnexus.item.ModCreativeModeTabs;
 import net.rubr1c.neuralnexus.item.ModItems;
+import net.rubr1c.neuralnexus.screen.ModMenuTypes;
+import net.rubr1c.neuralnexus.screen.custom.LearnerSwordScreen;
 import net.rubr1c.neuralnexus.sound.ModSounds;
 import org.slf4j.Logger;
 
@@ -44,7 +47,7 @@ public class NeuralNexus {
         ModCreativeModeTabs.register(modEventBus);
         ModSounds.register(modEventBus);
         ModDataComponents.register(modEventBus);
-
+        ModMenuTypes.register(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -72,6 +75,15 @@ public class NeuralNexus {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
+
+
+
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(ModMenuTypes.LEARNER_SWORD_MENU.get(), LearnerSwordScreen::new);
         }
     }
 }
