@@ -2,9 +2,9 @@ package net.rubr1c.neuralnexus.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.data.recipes.*;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
+import net.rubr1c.neuralnexus.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -15,8 +15,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput) {
-
-
 
     }
 }

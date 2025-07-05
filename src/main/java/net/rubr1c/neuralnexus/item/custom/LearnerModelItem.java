@@ -1,7 +1,12 @@
 package net.rubr1c.neuralnexus.item.custom;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -11,12 +16,17 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.rubr1c.neuralnexus.codec.LearnerModelData;
 import net.rubr1c.neuralnexus.component.ModDataComponents;
 
 import java.util.List;
 
 public class LearnerModelItem extends Item {
-    private static final IntegerProperty ACCURACY = IntegerProperty.create("accuracy", 0, 100);
+
+
+    private static final IntegerProperty ACCURACY =
+            IntegerProperty.create("accuracy", 0, 100);
+
 
     public LearnerModelItem() {
         super(new Item.Properties());
@@ -50,4 +60,5 @@ public class LearnerModelItem extends Item {
 
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
+
 }

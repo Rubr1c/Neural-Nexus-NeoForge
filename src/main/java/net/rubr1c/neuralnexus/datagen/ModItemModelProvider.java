@@ -21,5 +21,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         basicItem(ModItems.SOLDER_DUST.get());
         basicItem(ModItems.MCSM_THEME_MUSIC_DISC.get());
         basicItem(ModItems.LEARNER_MODEL.get());
+
+        handheldItem(ModItems.LEARNER_SWORD.get());
     }
 }

@@ -1,12 +1,14 @@
 package net.rubr1c.neuralnexus.item;
 
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rubr1c.neuralnexus.NeuralNexus;
 import net.rubr1c.neuralnexus.item.custom.GlowingItem;
 import net.rubr1c.neuralnexus.item.custom.LearnerModelItem;
+import net.rubr1c.neuralnexus.item.custom.LearnerSwordItem;
 import net.rubr1c.neuralnexus.sound.ModSounds;
 
 import java.util.function.Supplier;
@@ -39,6 +41,9 @@ public class ModItems {
 
     public static final DeferredItem<Item> LEARNER_MODEL = registerItem("learner_model",
             LearnerModelItem::new);
+
+    public static final DeferredItem<Item> LEARNER_SWORD = registerItem("learner_sword", LearnerSwordItem::new);
+
 
     public static DeferredItem<Item> registerItem(String name, Supplier<Item> item) {
         DeferredItem<Item> deferred = ITEMS.register(name, item);

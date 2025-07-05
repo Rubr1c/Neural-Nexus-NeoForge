@@ -9,6 +9,8 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.rubr1c.neuralnexus.NeuralNexus;
+import net.rubr1c.neuralnexus.codec.LearnerModelData;
+import net.rubr1c.neuralnexus.item.custom.LearnerModelItem;
 
 import java.util.function.UnaryOperator;
 
@@ -19,6 +21,9 @@ public class ModDataComponents {
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<ResourceLocation>> LIVING_ENTITY =
             register("living_entity", builder -> builder.networkSynchronized(ResourceLocation.STREAM_CODEC));
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<LearnerModelData>> MODEL =
+            register("learner_model", builder -> builder.networkSynchronized(LearnerModelData.STREAM_CODEC));
 
     private static <T> DeferredHolder<DataComponentType<?>, DataComponentType<T>> register(
             String name, UnaryOperator<DataComponentType.Builder<T>> builderOperator) {
