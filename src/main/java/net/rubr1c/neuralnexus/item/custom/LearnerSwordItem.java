@@ -25,6 +25,7 @@ import net.rubr1c.neuralnexus.screen.custom.LearnerSwordMenu;
 import java.util.List;
 
 public class LearnerSwordItem extends SwordItem {
+    public static final String NBT_KEY = "LearnerSwordInv";
 
     public LearnerSwordItem() {
         super(Tiers.NETHERITE,
@@ -82,7 +83,7 @@ public class LearnerSwordItem extends SwordItem {
         HolderLookup.Provider provider = player.level().registryAccess();
         ItemStackHandler handler = new ItemStackHandler(9);
 
-        CompoundTag swordInv = comp.getCompound(LearnerSwordMenu.NBT_KEY);
+        CompoundTag swordInv = comp.getCompound(NBT_KEY);
         handler.deserializeNBT(provider, swordInv);
         int slotIndex;
 

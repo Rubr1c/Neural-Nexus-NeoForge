@@ -41,7 +41,7 @@ import java.util.Random;
 public class ModEvents {
 
     @SubscribeEvent
-    public static void onKill(LivingDeathEvent event) {
+    public static void onWitherKillBabyPig(LivingDeathEvent event) {
         LivingEntity dead = event.getEntity();
         DamageSource src = event.getSource();
 
@@ -50,7 +50,15 @@ public class ModEvents {
 
             ItemStack drop = new ItemStack(ModItems.MCSM_THEME_MUSIC_DISC.get());
             dead.spawnAtLocation(drop);
-        } else if (src.getEntity() instanceof Player player) {
+        }
+    }
+
+    @SubscribeEvent
+    public static void onKillWithLearnerSword(LivingDeathEvent event) {
+        LivingEntity dead = event.getEntity();
+        DamageSource src = event.getSource();
+
+        if (src.getEntity() instanceof Player player) {
             ItemStack stack = player.getMainHandItem();
             if (stack.getItem() instanceof LearnerSwordItem) {
                 Boolean isLearning = stack.get(ModDataComponents.BOOL);
@@ -61,7 +69,7 @@ public class ModEvents {
                     HolderLookup.Provider provider = player.level().registryAccess();
                     ItemStackHandler handler = new ItemStackHandler(9);
 
-                    CompoundTag swordInv = comp.getCompound(LearnerSwordMenu.NBT_KEY);
+                    CompoundTag swordInv = comp.getCompound(LearnerSwordItem.NBT_KEY);
                     handler.deserializeNBT(provider, swordInv);
 
 
@@ -78,7 +86,7 @@ public class ModEvents {
                             updated.set(ModDataComponents.PERCENT, Math.min(acc + 1, 100));
                             handler.setStackInSlot(i, updated);
 
-                            comp.put(LearnerSwordMenu.NBT_KEY, handler.serializeNBT(provider));
+                            comp.put(LearnerSwordItem.NBT_KEY, handler.serializeNBT(provider));
                             stack.set(ModDataComponents.NBT, comp);
                             break;
                         }
@@ -87,11 +95,10 @@ public class ModEvents {
                 }
             }
         }
-
     }
 
     @SubscribeEvent
-    public static void onLeftClickBlock(PlayerInteractEvent.LeftClickBlock event) {
+    public static void onLeftClickWithLearnerSword(PlayerInteractEvent.LeftClickBlock event) {
         ItemStack stack = event.getItemStack();
 
         if (stack.getItem() instanceof LearnerSwordItem) {
@@ -110,7 +117,7 @@ public class ModEvents {
     }
 
     @SubscribeEvent
-    public static void onDrops(LivingDropsEvent event) {
+    public static void onDropsKilledByLearnerSword(LivingDropsEvent event) {
         Level level = event.getEntity().level();
         if (level.isClientSide()) return;
         if (level.getServer() == null) return;
