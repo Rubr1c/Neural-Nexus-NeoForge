@@ -33,15 +33,7 @@ public class LearnerSwordMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.handler = new ItemStackHandler(9);
-        ItemStack held = player.getMainHandItem();
-        var comp = held.get(ModDataComponents.NBT);
-        HolderLookup.Provider provider = player.level().registryAccess();
-        if (comp != null) {
-            CompoundTag swordInv = comp.getCompound(LearnerSwordItem.NBT_KEY);
-            handler.deserializeNBT(provider, swordInv);
-        } else {
-            held.set(ModDataComponents.NBT, new CompoundTag());
-        }
+        LearnerSwordItem.loadContents(player, handler);
 
         int startX = 8, startY = 17;
         for (int i = 0; i < 9; i++) {
@@ -91,25 +83,14 @@ public class LearnerSwordMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public void removed(Player player) {
+    public void removed(@NotNull Player player) {
         super.removed(player);
-        if (!player.level().isClientSide()) {
-            ItemStack held = player.getMainHandItem();
-            CompoundTag comp = held.get(ModDataComponents.NBT);
-
-            HolderLookup.Provider provider = player.level().registryAccess();
-
-            if (comp != null) {
-                comp.put(LearnerSwordItem.NBT_KEY, handler.serializeNBT(provider));
-                held.set(ModDataComponents.NBT, comp);
-            }
-        }
-
+        LearnerSwordItem.saveContents(player, handler);
     }
 
 
     @Override
-    public boolean stillValid(Player player) {
+    public boolean stillValid(@NotNull Player player) {
         return true;
     }
 

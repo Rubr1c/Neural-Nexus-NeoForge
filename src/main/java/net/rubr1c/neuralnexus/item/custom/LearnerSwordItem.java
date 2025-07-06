@@ -76,6 +76,32 @@ public class LearnerSwordItem extends SwordItem {
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 
+    public static void saveContents(Player player, ItemStackHandler handler) {
+        if (!player.level().isClientSide()) {
+            ItemStack held = player.getMainHandItem();
+            CompoundTag comp = held.get(ModDataComponents.NBT);
+
+            HolderLookup.Provider provider = player.level().registryAccess();
+
+            if (comp != null) {
+                comp.put(LearnerSwordItem.NBT_KEY, handler.serializeNBT(provider));
+                held.set(ModDataComponents.NBT, comp);
+            }
+        }
+    }
+
+    public static void loadContents(Player player, ItemStackHandler handler) {
+        ItemStack held = player.getMainHandItem();
+        var comp = held.get(ModDataComponents.NBT);
+        HolderLookup.Provider provider = player.level().registryAccess();
+        if (comp != null) {
+            CompoundTag swordInv = comp.getCompound(LearnerSwordItem.NBT_KEY);
+            handler.deserializeNBT(provider, swordInv);
+        } else {
+            held.set(ModDataComponents.NBT, new CompoundTag());
+        }
+    }
+
     private LearnerModelData getNextModelData(Player player,
             CompoundTag comp,
             LearnerModelData prev) {
